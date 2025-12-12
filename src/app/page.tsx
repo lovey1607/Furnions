@@ -42,8 +42,8 @@ function HeroSection() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=500&fit=crop"
-              alt="Floating wooden furniture piece"
+              src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?w=400&h=500&fit=crop"
+              alt="Cafe furniture and menu holder"
               fill
               className="object-cover rounded-2xl shadow-2xl"
               priority
@@ -64,7 +64,7 @@ function HeroSection() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-12 md:mt-20 font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#6B6963]"
         >
-          Quiet Luxury • Est. 2024
+          Aesthetic Furniture
         </motion.p>
       </motion.div>
 
@@ -132,8 +132,8 @@ function DayNightSection() {
               className="font-mono text-sm leading-relaxed max-w-md transition-colors duration-1000"
               style={{ color: isNight ? "#9B9890" : "#6B6963" }}
             >
-              Our menu holder adapts to every ambiance. Crafted from sustainably 
-              sourced walnut, each piece transforms with the light—bold at dawn, 
+              Our furniture collection adapts to every ambiance. Crafted from sustainably 
+              sourced materials, each piece transforms with the light—bold at dawn, 
               intimate at dusk.
             </p>
 
@@ -175,8 +175,11 @@ function DayNightSection() {
                 className="absolute inset-0"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=1000&fit=crop"
-                  alt="Menu holder on table"
+                  src={isNight 
+                    ? "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800&h=1000&fit=crop"
+                    : "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&h=1000&fit=crop"
+                  }
+                  alt={isNight ? "Night furniture ambiance" : "Day furniture ambiance"}
                   fill
                   className="object-cover transition-all duration-1000"
                   style={{ filter: isNight ? "brightness(0.4)" : "brightness(1)" }}
@@ -207,7 +210,7 @@ function DayNightSection() {
               className="font-mono text-[10px] tracking-[0.2em] uppercase mt-4 transition-colors duration-1000"
               style={{ color: isNight ? "#6B6963" : "#9B9890" }}
             >
-              Menu Holder — Walnut Edition
+              {isNight ? "Night Collection — Intimate Edition" : "Day Collection — Bright Edition"}
             </p>
           </motion.div>
         </div>
@@ -219,44 +222,44 @@ function DayNightSection() {
 const galleryItems = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=600&h=800&fit=crop",
-    title: "QR Stand",
-    material: "Laser Cut Oak",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=800&fit=crop",
+    title: "Menu Holder",
+    material: "Walnut & Brass",
     position: "top",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=700&h=500&fit=crop",
-    title: "Serving Tray",
-    material: "Walnut",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&h=500&fit=crop",
+    title: "Cafe Chair",
+    material: "Oak & Leather",
     position: "bottom",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=500&h=700&fit=crop",
-    title: "Espresso Cup",
-    material: "Ceramic & Cork",
+    image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=500&h=700&fit=crop",
+    title: "Table Lamp",
+    material: "Brass & Linen",
     position: "middle",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=600&fit=crop",
-    title: "Lounge Chair",
-    material: "Leather & Ash",
+    image: "https://images.unsplash.com/photo-1550254478-ead40cc54513?w=800&h=600&fit=crop",
+    title: "Dining Table",
+    material: "Walnut & Steel",
     position: "top",
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=900&fit=crop",
-    title: "Side Table",
-    material: "Travertine",
+    image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&h=900&fit=crop",
+    title: "Bar Stool",
+    material: "Leather & Oak",
     position: "bottom",
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=700&h=700&fit=crop",
-    title: "Floor Lamp",
-    material: "Brass & Linen",
+    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&h=700&fit=crop",
+    title: "Shelf Unit",
+    material: "Pine & Iron",
     position: "middle",
   },
 ];
@@ -479,7 +482,7 @@ function FooterSection() {
             <div className="space-y-2">
               <h3 className="font-serif italic text-3xl text-[#F2F0E9]">FURNIOS</h3>
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6963]">
-                Quiet Luxury Since 2024
+                Aesthetically Curated
               </p>
             </div>
 
@@ -497,7 +500,7 @@ function FooterSection() {
           </div>
 
           <p className="font-mono text-[10px] tracking-[0.1em] text-[#4A4A48] mt-12">
-            © 2024 FURNIOS. All rights reserved. Crafted with intention.
+            © 2025-2026 FURNIOS. All rights reserved. Crafted with intention.
           </p>
         </motion.div>
       </div>
