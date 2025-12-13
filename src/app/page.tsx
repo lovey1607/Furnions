@@ -13,31 +13,31 @@ function HeroSection() {
 
   const objectY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const objectRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
-  const textLeftX = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const textRightX = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const textLeftX = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const textRightX = useTransform(scrollYProgress, [0, 1], [0, 50]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F2F0E9]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F2F0E9] px-4"
     >
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
       }} />
 
-      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center">
-        <div className="flex items-center justify-center gap-4 md:gap-8 lg:gap-16">
+      <motion.div style={{ opacity }} className="relative z-10 flex flex-col items-center max-w-full">
+        <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-8 lg:gap-12 max-w-[95vw]">
           <motion.h1
             style={{ x: textLeftX }}
-            className="font-serif italic text-[#1A1A18] text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[16rem] font-normal tracking-tight leading-none"
+            className="font-serif italic text-[#1A1A18] text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-normal tracking-tight leading-none whitespace-nowrap"
           >
             FUR
           </motion.h1>
 
           <motion.div
             style={{ y: objectY, rotate: objectRotate }}
-            className="relative w-24 h-32 sm:w-32 sm:h-40 md:w-40 md:h-52 lg:w-56 lg:h-72"
+            className="relative w-16 h-24 sm:w-24 sm:h-32 md:w-32 md:h-44 lg:w-48 lg:h-64 flex-shrink-0"
             animate={{ y: [0, -20, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -52,7 +52,7 @@ function HeroSection() {
 
           <motion.h1
             style={{ x: textRightX }}
-            className="font-serif italic text-[#1A1A18] text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[16rem] font-normal tracking-tight leading-none"
+            className="font-serif italic text-[#1A1A18] text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-normal tracking-tight leading-none whitespace-nowrap"
           >
             NICALLY
           </motion.h1>
@@ -62,7 +62,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="mt-12 md:mt-20 font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#6B6963]"
+          className="mt-8 md:mt-12 font-mono text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-[#6B6963] text-center px-4"
         >
           small aesthetic furniture's
         </motion.p>
