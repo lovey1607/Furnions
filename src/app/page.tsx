@@ -54,7 +54,7 @@ function HeroSection() {
             style={{ x: textRightX }}
             className="font-serif italic text-[#1A1A18] text-6xl sm:text-8xl md:text-9xl lg:text-[12rem] xl:text-[16rem] font-normal tracking-tight leading-none"
           >
-            NIOS
+            NICALLY
           </motion.h1>
         </div>
 
@@ -513,7 +513,7 @@ function FooterSection() {
         >
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
             <div className="space-y-2">
-              <h3 className="font-serif italic text-3xl text-[#F2F0E9]">FURNIOS</h3>
+              <h3 className="font-serif italic text-3xl text-[#F2F0E9]">FURNICALLY</h3>
               <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#6B6963]">
                 Aesthetically Curated
               </p>
@@ -533,7 +533,7 @@ function FooterSection() {
           </div>
 
           <p className="font-mono text-[10px] tracking-[0.1em] text-[#4A4A48] mt-12">
-            © 2025-2026 FURNIOS. All rights reserved. Crafted with intention.
+            © 2025-2026 FURNICALLY. All rights reserved. Crafted with intention.
           </p>
         </motion.div>
       </div>
