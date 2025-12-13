@@ -84,136 +84,169 @@ function HeroSection() {
   );
 }
 
-function DayNightSection() {
-  const [isNight, setIsNight] = useState(false);
+function CatalogueSection() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, margin: "-40%" });
+  const isInView = useInView(ref, { once: false, margin: "-20%" });
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const catalogueItems = [
+    {
+      id: 1,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-10-1765648710123.jpg",
+      title: "Wall Wine Rack",
+      material: "Reclaimed Wood",
+    },
+    {
+      id: 2,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Handcrafted-Natural-Unique-Solid-Wood-Bottle-Wine-Rack-Tableware-Party-Decoration-Wholesale-From-Vietnam-Buy-Unique-Solid-Wood-Bottle-Wine-Rack-Unique-Solid-Wood-Bottle-Wine-Rack-Glass-Bottles-Unique-Solid-W-1765648709555.jpg",
+      title: "Sculptural Wine Holder",
+      material: "Solid Mango Wood",
+    },
+    {
+      id: 3,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-9-1765648709813.jpg",
+      title: "Nesting Tables",
+      material: "Walnut & Carved Inlay",
+    },
+    {
+      id: 4,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-8-1765648709896.jpg",
+      title: "Cylindrical Side Table",
+      material: "Sheesham Wood",
+    },
+    {
+      id: 5,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Side-Tables-_-Living-Room-Side-Tables-1765648709459.jpg",
+      title: "Bear Table Stand",
+      material: "Hand-Carved Acacia",
+    },
+    {
+      id: 6,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/These-would-be-great-designs_-1765648710031.jpg",
+      title: "Leaf Coaster Set",
+      material: "Engraved Oak",
+    },
+    {
+      id: 7,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-7-1765648709681.jpg",
+      title: "Monogram Cutting Board",
+      material: "Hickory & Walnut",
+    },
+    {
+      id: 8,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/10-DIY-Kitchen-Decoration-Ideas-That-Will-Transform-Your-Space-Right-Away-Don-t-Miss-3-1765648710000.jpg",
+      title: "Striped Cutting Boards",
+      material: "Multi-Wood Composition",
+    },
+    {
+      id: 9,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Custom-Engraved-Wooden-Cutting-Board-Set-Kitchen-Boards-Set-3-Handmade-Decorative-Plates-Personalized-Grandma-s-Gift-Cut-Boards-Set-1765648709917.jpg",
+      title: "Decorative Board Stands",
+      material: "Carved & Freestanding",
+    },
+    {
+      id: 10,
+      image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-6-1765648710295.jpg",
+      title: "Tiered Bamboo Organizers",
+      material: "Natural Bamboo & Wire",
+    },
+  ];
 
   useEffect(() => {
     if (isInView) {
       const interval = setInterval(() => {
-        setIsNight((prev) => !prev);
-      }, 4000);
+        setActiveIndex((prev) => (prev + 1) % catalogueItems.length);
+      }, 3000);
       return () => clearInterval(interval);
     }
-  }, [isInView]);
+  }, [isInView, catalogueItems.length]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden transition-colors duration-1000"
-      style={{ backgroundColor: isNight ? "#1A1A18" : "#F2F0E9" }}
+      className="relative min-h-screen py-20 bg-[#F2F0E9] overflow-hidden"
     >
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
-          >
-            <div className="space-y-4">
-              <motion.span
-                className="font-mono text-[10px] tracking-[0.3em] uppercase transition-colors duration-1000"
-                style={{ color: isNight ? "#9B9890" : "#6B6963" }}
-              >
-                The Silhouette Collection
-              </motion.span>
-              <h2
-                className="font-serif italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.9] transition-colors duration-1000"
-                style={{ color: isNight ? "#F2F0E9" : "#1A1A18" }}
-              >
-                Day<br />& Night
-              </h2>
-            </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-12 text-center"
+        >
+          <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#6B6963]">
+            Wooden Craftsmanship
+          </span>
+          <h2 className="font-serif italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#1A1A18] mt-4 leading-[0.9]">
+            Our<br />Catalogue
+          </h2>
+        </motion.div>
 
-            <p
-              className="font-mono text-sm leading-relaxed max-w-md transition-colors duration-1000"
-              style={{ color: isNight ? "#9B9890" : "#6B6963" }}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          {catalogueItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              className={`relative group overflow-hidden rounded-lg ${
+                activeIndex === index ? "ring-2 ring-[#CC5500]" : ""
+              }`}
             >
-              Our furniture collection adapts to every ambiance. Crafted from sustainably 
-              sourced materials, each piece transforms with the light—bold at dawn, 
-              intimate at dusk.
-            </p>
-
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsNight(false)}
-                className={`font-mono text-xs tracking-widest uppercase px-4 py-2 border transition-all duration-500 ${
-                  !isNight
-                    ? "border-[#CC5500] text-[#CC5500]"
-                    : "border-[#6B6963] text-[#6B6963] hover:border-[#F2F0E9] hover:text-[#F2F0E9]"
-                }`}
-              >
-                Day
-              </button>
-              <button
-                onClick={() => setIsNight(true)}
-                className={`font-mono text-xs tracking-widest uppercase px-4 py-2 border transition-all duration-500 ${
-                  isNight
-                    ? "border-[#CC5500] text-[#CC5500]"
-                    : "border-[#6B6963] text-[#6B6963] hover:border-[#1A1A18] hover:text-[#1A1A18]"
-                }`}
-              >
-                Night
-              </button>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative aspect-[3/4] w-full max-w-lg mx-auto overflow-hidden rounded-t-[100px]">
               <motion.div
-                animate={{ scale: isNight ? 1.05 : 1 }}
-                transition={{ duration: 1 }}
-                className="absolute inset-0"
+                animate={{
+                  scale: activeIndex === index ? 1.05 : 1,
+                }}
+                transition={{ duration: 0.6 }}
+                className="relative aspect-square"
               >
                 <Image
-                  src={isNight 
-                    ? "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=800&h=1000&fit=crop"
-                    : "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&h=1000&fit=crop"
-                  }
-                  alt={isNight ? "Night furniture ambiance" : "Day furniture ambiance"}
+                  src={item.image}
+                  alt={item.title}
                   fill
-                  className="object-cover transition-all duration-1000"
-                  style={{ filter: isNight ? "brightness(0.4)" : "brightness(1)" }}
+                  className="object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-[#1A1A18]/80 via-transparent to-transparent transition-opacity duration-500 ${
+                    activeIndex === index ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                  }`}
                 />
               </motion.div>
 
-              <div
-                className="absolute inset-0 transition-opacity duration-1000"
-                style={{
-                  background: isNight
-                    ? "radial-gradient(ellipse at 50% 30%, rgba(255,180,100,0.15) 0%, transparent 60%)"
-                    : "none",
-                  opacity: isNight ? 1 : 0,
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{
+                  opacity: activeIndex === index ? 1 : 0,
+                  y: activeIndex === index ? 0 : 10,
                 }}
-              />
-            </div>
-
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="h-px mt-8 transition-colors duration-1000"
-              style={{ backgroundColor: isNight ? "#3A3A38" : "#D4D1C7" }}
-            />
-
-            <p
-              className="font-mono text-[10px] tracking-[0.2em] uppercase mt-4 transition-colors duration-1000"
-              style={{ color: isNight ? "#6B6963" : "#9B9890" }}
-            >
-              {isNight ? "Night Collection — Intimate Edition" : "Day Collection — Bright Edition"}
-            </p>
-          </motion.div>
+                className="absolute bottom-0 left-0 right-0 p-3 text-white"
+              >
+                <h3 className="font-serif italic text-sm md:text-base">{item.title}</h3>
+                <p className="font-mono text-[8px] md:text-[10px] tracking-[0.2em] uppercase text-[#D4D1C7] mt-1">
+                  {item.material}
+                </p>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-16"
+        >
+          <button className="group flex items-center gap-4 font-mono text-xs tracking-[0.2em] uppercase text-[#1A1A18] hover:text-[#CC5500] transition-colors border border-[#1A1A18] hover:border-[#CC5500] px-8 py-3">
+            <span>Explore Full Collection</span>
+            <motion.span
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="text-lg"
+            >
+              →
+            </motion.span>
+          </button>
+        </motion.div>
       </div>
     </section>
   );
@@ -222,44 +255,44 @@ function DayNightSection() {
 const galleryItems = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=800&fit=crop",
-    title: "Menu Holder",
-    material: "Walnut & Brass",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-10-1765648710123.jpg",
+    title: "Wall Wine Rack",
+    material: "Reclaimed Wood & Brass",
     position: "top",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&h=500&fit=crop",
-    title: "Cafe Chair",
-    material: "Oak & Leather",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Handcrafted-Natural-Unique-Solid-Wood-Bottle-Wine-Rack-Tableware-Party-Decoration-Wholesale-From-Vietnam-Buy-Unique-Solid-Wood-Bottle-Wine-Rack-Unique-Solid-Wood-Bottle-Wine-Rack-Glass-Bottles-Unique-Solid-W-1765648709555.jpg",
+    title: "Sculptural Wine Holder",
+    material: "Solid Mango Wood",
     position: "bottom",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?w=500&h=700&fit=crop",
-    title: "Table Lamp",
-    material: "Brass & Linen",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Side-Tables-_-Living-Room-Side-Tables-1765648709459.jpg",
+    title: "Bear Table Stand",
+    material: "Hand-Carved Acacia",
     position: "middle",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1550254478-ead40cc54513?w=800&h=600&fit=crop",
-    title: "Dining Table",
-    material: "Walnut & Steel",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-9-1765648709813.jpg",
+    title: "Nesting Tables",
+    material: "Walnut & Carved Inlay",
     position: "top",
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1503602642458-232111445657?w=600&h=900&fit=crop",
-    title: "Bar Stool",
-    material: "Leather & Oak",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/10-DIY-Kitchen-Decoration-Ideas-That-Will-Transform-Your-Space-Right-Away-Don-t-Miss-3-1765648710000.jpg",
+    title: "Striped Cutting Boards",
+    material: "Multi-Wood Composition",
     position: "bottom",
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&h=700&fit=crop",
-    title: "Shelf Unit",
-    material: "Pine & Iron",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/download-6-1765648710295.jpg",
+    title: "Tiered Organizers",
+    material: "Natural Bamboo & Wire",
     position: "middle",
   },
 ];
@@ -512,7 +545,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <HeroSection />
-      <DayNightSection />
+      <CatalogueSection />
       <GallerySection />
       <FooterSection />
     </main>
