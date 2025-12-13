@@ -64,7 +64,7 @@ function HeroSection() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-12 md:mt-20 font-mono text-[10px] sm:text-xs tracking-[0.3em] uppercase text-[#6B6963]"
         >
-          Aesthetic Furniture
+          small aesthetic furniture's
         </motion.p>
       </motion.div>
 
