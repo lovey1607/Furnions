@@ -54,7 +54,7 @@ function HeroSection() {
             style={{ x: textRightX }}
             className="font-serif italic text-[#1A1A18] text-4xl sm:text-6xl md:text-8xl lg:text-[10rem] xl:text-[12rem] font-normal tracking-tight leading-none whitespace-nowrap"
           >
-            NICALLY
+            NIONS
           </motion.h1>
         </div>
 
@@ -64,7 +64,7 @@ function HeroSection() {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-8 md:mt-12 font-mono text-[9px] sm:text-[10px] tracking-[0.3em] uppercase text-[#6B6963] text-center px-4"
         >
-          small aesthetic furniture's
+          Discover Furnions: Where Wood Meets Whimsy
         </motion.p>
       </motion.div>
 
