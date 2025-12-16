@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Furnions | Quiet Luxury Furniture
+
+A luxury furniture website built with Next.js 15, featuring the Furnions brand identity with sophisticated design, smooth animations, and accessible user experience.
+
+## Features
+
+### 🎨 Brand Identity
+- **Typography**: Montserrat for headings, Open Sans for body text
+- **Color Palette**: 
+  - Primary Brown (#8B4513)
+  - Ivory (#F5F5DC) 
+  - Forest Green (#228B22)
+  - Off White (#FAF9F6)
+- Accessible color contrasts meeting WCAG standards
+- Dark theme support
+
+### 🧩 Components
+- **Header**: Fixed navigation with logo, wood texture treatment, search modal, cart icon with badge
+- **Footer**: Quick links, social media, newsletter signup with form validation
+- **AnimationsProvider**: GSAP integration, floating particles, scroll-triggered animations
+- **Search**: Full-screen modal with keyboard shortcut (⌘/Ctrl + K) support
+
+### ✨ Animations
+- Header parallax effects with scroll-triggered wood texture fading
+- Floating particle effects using CSS keyframes and tsparticles
+- Smooth scroll animations respecting `prefers-reduced-motion`
+- 60fps animations with GPU acceleration hints
+
+### 📧 Newsletter Integration
+- API endpoint at `/api/newsletter` for email subscription
+- Form validation and error handling
+- Integration-ready for Contentful or email services
+- Success/error feedback in UI
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
+
+### Analytics
+```bash
+# Google Analytics Measurement ID
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+### Newsletter (Optional - Coming Soon)
+```bash
+# Contentful integration (future)
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_ACCESS_TOKEN=your_access_token
+
+# Email service integration (future)
+MAILCHIMP_API_KEY=your_mailchimp_key
+MAILCHIMP_LIST_ID=your_list_id
+
+# Alternative email service
+CONVERTKIT_API_KEY=your_convertkit_key
+CONVERTKIT_FORM_ID=your_form_id
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Set up environment variables:**
+   - Copy `.env.example` to `.env.local`
+   - Add your Google Analytics ID
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open [http://localhost:3000](http://localhost:3000)**
+
+## API Endpoints
+
+### Newsletter Signup
+- **POST** `/api/newsletter`
+- **Body**: `{ "email": "user@example.com" }`
+- **Response**: `{ "success": true, "message": "Successfully subscribed!" }`
+
+## Development
+
+### Project Structure
+```
+src/
+├── app/
+│   ├── api/newsletter/        # Newsletter API endpoint
+│   ├── layout.tsx            # Root layout with providers
+│   ├── globals.css           # Global styles with Furnions palette
+│   └── page.tsx              # Home page
+├── components/
+│   ├── site/
+│   │   ├── Header.tsx        # Fixed navigation with search
+│   │   └── Footer.tsx        # Footer with newsletter
+│   ├── providers/
+│   │   └── AnimationsProvider.tsx # Animation management
+│   └── ui/                   # Shared UI components
+└── lib/                      # Utilities and configurations
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Styling
+- **Tailwind CSS v4** with custom Furnions color palette
+- **CSS Custom Properties** for brand colors
+- **Responsive design** with mobile-first approach
+- **Dark theme** support via CSS variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Animation System
+- **Framer Motion** for React components
+- **AOS** for scroll-triggered animations
+- **CSS keyframes** for particle effects
+- **Respect for `prefers-reduced-motion`** accessibility setting
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Accessibility Features
+- Keyboard navigation support
+- ARIA labels and semantic HTML
+- Screen reader compatibility
+- High contrast color ratios
+- Focus management in modals
+- Reduced motion preference handling
 
-## Learn More
+## Performance Optimizations
 
-To learn more about Next.js, take a look at the following resources:
+- **Font optimization** with `next/font/google`
+- **Image optimization** with Next.js Image component
+- **60fps animations** with GPU acceleration
+- **Lazy loading** of animation libraries
+- **Tree shaking** and code splitting
+- **Bundle optimization** for production builds
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Run the test suite:
+```bash
+npm run test
+```
 
-## Deploy on Vercel
+Run linting:
+```bash
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Add environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Manual Deployment
+```bash
+npm run build
+npm start
+```
+
+## Browser Support
+
+- **Modern browsers** (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
+- **Mobile browsers** (iOS Safari 14+, Chrome Mobile 90+)
+- **Progressive enhancement** for older browsers
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes following the existing code style
+3. Test thoroughly on different devices
+4. Submit a pull request with detailed description
+
+## License
+
+Private project. All rights reserved.
+
+---
+
+Built with ❤️ for Furnions brand experience.

@@ -1,5 +1,5 @@
-/* Updated: 2025-12-13T17:56:32.716Z */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Courier+Prime:wght@400;700&display=swap');
+/* Updated: 2025-12-16T03:35:00.000Z - Furnions Brand Layout Overhaul */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -9,8 +9,15 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
   --font-mono: 'Courier Prime', monospace;
+  /* Furnions Brand Colors */
+  --color-primary-brown: #8B4513;
+  --color-ivory: #F5F5DC;
+  --color-forest-green: #228B22;
+  --color-off-white: #FAF9F6;
+  /* Legacy colors for compatibility */
   --color-alabaster: #F2F0E9;
   --color-charcoal: #1A1A18;
   --color-deep-clay: #CC5500;
@@ -51,24 +58,25 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #F2F0E9;
-  --foreground: #1A1A18;
-  --card: #F2F0E9;
-  --card-foreground: #1A1A18;
-  --popover: #F2F0E9;
-  --popover-foreground: #1A1A18;
-  --primary: #1A1A18;
-  --primary-foreground: #F2F0E9;
-  --secondary: #E8E5DC;
-  --secondary-foreground: #1A1A18;
-  --muted: #E8E5DC;
-  --muted-foreground: #6B6963;
-  --accent: #CC5500;
-  --accent-foreground: #F2F0E9;
-  --destructive: #CC5500;
-  --border: #D4D1C7;
-  --input: #D4D1C7;
-  --ring: #CC5500;
+  /* Furnions Brand Palette with Accessible Contrasts */
+  --background: #FAF9F6; /* Off White */
+  --foreground: #1A1A18; /* Charcoal for accessibility */
+  --card: #FAF9F6; /* Off White */
+  --card-foreground: #1A1A18; /* Charcoal */
+  --popover: #FAF9F6; /* Off White */
+  --popover-foreground: #1A1A18; /* Charcoal */
+  --primary: #8B4513; /* Primary Brown */
+  --primary-foreground: #F5F5DC; /* Ivory for contrast */
+  --secondary: #F5F5DC; /* Ivory */
+  --secondary-foreground: #1A1A18; /* Charcoal */
+  --muted: #F5F5DC; /* Ivory */
+  --muted-foreground: #6B6963; /* Medium gray */
+  --accent: #228B22; /* Forest Green */
+  --accent-foreground: #FAF9F6; /* Off White */
+  --destructive: #CC5500; /* Deep Clay */
+  --border: #D4D1C7; /* Light border */
+  --input: #D4D1C7; /* Light input */
+  --ring: #228B22; /* Forest Green */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -85,24 +93,25 @@
 }
 
 .dark {
-  --background: #1A1A18;
-  --foreground: #F2F0E9;
-  --card: #252523;
-  --card-foreground: #F2F0E9;
-  --popover: #252523;
-  --popover-foreground: #F2F0E9;
-  --primary: #F2F0E9;
-  --primary-foreground: #1A1A18;
-  --secondary: #2F2F2D;
-  --secondary-foreground: #F2F0E9;
-  --muted: #2F2F2D;
-  --muted-foreground: #9B9890;
-  --accent: #CC5500;
-  --accent-foreground: #F2F0E9;
-  --destructive: #CC5500;
-  --border: #3A3A38;
-  --input: #3A3A38;
-  --ring: #CC5500;
+  /* Furnions Dark Theme */
+  --background: #1A1A18; /* Charcoal */
+  --foreground: #F5F5DC; /* Ivory */
+  --card: #2A2A28; /* Darker charcoal */
+  --card-foreground: #F5F5DC; /* Ivory */
+  --popover: #2A2A28; /* Darker charcoal */
+  --popover-foreground: #F5F5DC; /* Ivory */
+  --primary: #8B4513; /* Primary Brown */
+  --primary-foreground: #F5F5DC; /* Ivory */
+  --secondary: #3A3A38; /* Dark gray */
+  --secondary-foreground: #F5F5DC; /* Ivory */
+  --muted: #3A3A38; /* Dark gray */
+  --muted-foreground: #9B9890; /* Light gray */
+  --accent: #228B22; /* Forest Green */
+  --accent-foreground: #FAF9F6; /* Off White */
+  --destructive: #CC5500; /* Deep Clay */
+  --border: #4A4A48; /* Medium border */
+  --input: #4A4A48; /* Medium input */
+  --ring: #228B22; /* Forest Green */
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -124,7 +133,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Courier Prime', monospace;
+    font-family: 'Open Sans', sans-serif;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
   }
   
   html {
@@ -133,12 +148,49 @@
 }
 
 @layer utilities {
-  .font-serif {
-    font-family: 'Playfair Display', serif;
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .font-body {
+    font-family: 'Open Sans', sans-serif;
   }
   
   .font-mono {
     font-family: 'Courier Prime', monospace;
+  }
+  
+  /* Furnions Brand Color Utilities */
+  .text-primary-brown {
+    color: #8B4513;
+  }
+  
+  .text-ivory {
+    color: #F5F5DC;
+  }
+  
+  .text-forest-green {
+    color: #228B22;
+  }
+  
+  .text-off-white {
+    color: #FAF9F6;
+  }
+  
+  .bg-primary-brown {
+    background-color: #8B4513;
+  }
+  
+  .bg-ivory {
+    background-color: #F5F5DC;
+  }
+  
+  .bg-forest-green {
+    background-color: #228B22;
+  }
+  
+  .bg-off-white {
+    background-color: #FAF9F6;
   }
   
   .text-balance {
